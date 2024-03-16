@@ -37,7 +37,7 @@ int binarySearch(int* arr, int el, int len) {
             }
             temp = mid;
             while (temp < right && arr[temp + 1] == el) {
-                count--;
+                count++;
                 temp++;
             }
             return count;
@@ -50,11 +50,12 @@ int binarySearch(int* arr, int el, int len) {
     return count;
 }
 int countPairs3(int* arr, int len, int value) {
-    int count = 0, i=0, el;
-    while (i<len) {
+    int count = 0, i = 0, el;
+    while (i < len) {
         el = value - arr[i];
         count += binarySearch(arr, el, len);
         i++;
     }
+    count = count / 2;
     return count;
 }
